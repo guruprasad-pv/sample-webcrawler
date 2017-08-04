@@ -2,8 +2,6 @@ package com.gurupv.simple.search;
 
 import java.util.List;
 
-import com.gurupv.simple.crawler.SearchItem;
-
 public class SearchResults {
 	
 	private List<SearchItem> items;
