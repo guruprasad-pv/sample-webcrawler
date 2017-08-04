@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
+import com.gurupv.simple.search.SearchResults;
 
 public class SimpleCrawler {
 
