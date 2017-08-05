@@ -1,6 +1,5 @@
 # Web Crawler
 
-Note this repository is also synched with Travis CI
 
 ## The Application
 Java application to display top JS libraries used in sites. 
