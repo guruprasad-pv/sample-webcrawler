@@ -44,3 +44,4 @@ Test cases are added to test each individual components
 * Tests for JS library pattern search
 * Test for Crawler Task
 
+yml file included for Travis CI integration
