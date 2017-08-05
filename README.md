@@ -21,7 +21,7 @@ CrawlerTask connects to a url, and initiates the search
 CrawlerManager initializes the threads and spawns off the CrawlerTasks. CrawlerManager is configured to spawn 10 simultaneous threads
 
 
-##Dependencies and 3rd party libraries
+## Dependencies and 3rd party libraries
 mvn dependency:tree result  
 
  +- com.google.code.gson:gson:jar:2.8.1:compile  
