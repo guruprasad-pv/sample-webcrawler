@@ -6,6 +6,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
+/**
+ * 
+ * Searches through the obtained HTML page for the JS libraries
+ * <script> tags are searched for and with the tag src attributes are searched
+ *
+ */
 public class JSLibrarySearcher {
 
 	private static String scriptSearchPattern = "<script[^>]*?>";
@@ -15,11 +21,19 @@ public class JSLibrarySearcher {
 
 	private Set<String> jsLibs;
 
+	/**
+	 * 
+	 * @param The html page to be searched for
+	 */
 	public JSLibrarySearcher(String html) {
 		this.htmlText = html;
 		jsLibs = new HashSet<String>();
 	}
 
+	/**
+	 * Searches the html page and returns the Set of JS library names
+	 * @return Set of JS library names
+	 */
 	public Set<String> searchJSLinks() {
 		System.out.println("Searching JS libs for page....");
 		Pattern p = Pattern.compile(scriptSearchPattern);

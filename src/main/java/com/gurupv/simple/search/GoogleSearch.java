@@ -10,6 +10,11 @@ import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
 
+/**
+ * 
+ * Used for connecting to google API and searching for the user input search value
+ *
+ */
 public class GoogleSearch {
 
 	private static String GOOGLE_API_KEY_NAME = "key";
@@ -19,14 +24,25 @@ public class GoogleSearch {
 
 	private static String API_KEY = "AIzaSyALBTk39NZlRee-B7SrOyNceg6pMulCADY";
 	private static String CUSTOMSEARCH_KEY = "004048710312991882226:_edgi5jm1uu";
+	
+	//Number or search results to return. This is set to 10, and works only for 10.(Basic API)
 	private static String NUM_OF_RESULTS = "10";
 
 	private static String GOOGLE_URL = "https://www.googleapis.com/customsearch/v1?";
 
 	private String searchURL;
-	
-	private GoogleSearch(){}
 
+	// make constructor private so that it can be initiated only by a factory
+	// method
+	private GoogleSearch() {
+	}
+
+	/**
+	 * Factory method. Instantiates the object with required configuration and
+	 * returns the created Object
+	 * 
+	 * @return created GoogleSearch object
+	 */
 	public static GoogleSearch initialize() {
 
 		StringBuffer buff = new StringBuffer();
@@ -45,13 +61,18 @@ public class GoogleSearch {
 		return myself;
 	}
 
+	/**
+	 * Method used to submit the search to google search API
+	 * @param search value to be submitted.
+	 * @return SearchResults containing the JSON returned from google search API
+	 * @throws IOException
+	 */
 	public SearchResults search(String searchValue) throws IOException {
 
 		searchURL += URLEncoder.encode(searchValue, "UTF-8");
-		
-	
-		System.out.println("Start search in Google: "+searchURL);
-		
+
+		System.out.println("Start search in Google: " + searchURL);
+
 		URL url = new URL(searchURL);
 		Reader reader = new InputStreamReader(url.openStream(), "UTF-8");
 		String googleResult = new BufferedReader(reader).lines().collect(Collectors.joining("\n"));

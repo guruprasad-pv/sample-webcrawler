@@ -1,5 +1,10 @@
 package com.gurupv.simple.search;
 
+/**
+ * 
+ * Class used for holding the returned JSON from google search
+ *
+ */
 public class SearchItem {
 
 	private String formattedUrl;

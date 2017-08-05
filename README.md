@@ -32,6 +32,11 @@ mvn dependency:tree result
 GSON library is used for parsing JSON results from google search APIs.  
 Junit for unit test cases  
 
+## Executing the application
+com.gurupv.simple.command.CommandLineExecutor contains the main method to start the application.  
+The entire project can be built, compiled and executed using Maven.  
+Maven executor plugin is also added. If required, mvn exec:exec can be used to run the application using Maven. 
+The entire code base can also be imported into eclipse as a maven project.
 
 ## Test cases
 Test cases are added to test each individual components
