@@ -6,12 +6,12 @@ Java application to display top JS libraries used in sites.
 The application does the following
 * Seeks the command line input from user for a search value
 * Searches google with the given search value
-* spawns multiple crawlers and looks for JS libraries used
-* Aggregates and displays top JS librari used
+* Spawns multiple crawlers and looks for JS libraries used
+* Aggregates and displays top JS libraries used
 
 ## Search Components
-GoogleSearch class is used to initiate a search to google using google search API. The class is configured to query for only 10 results.  
-SearchResults and SearchItem classes are used for map the results returned from Google.
+GoogleSearch class is used to initiate a search to google, using google search API. The class is configured to query for only 10 results.  
+SearchResults and SearchItem classes are used to map the results returned from Google.
 
 ## JS libraries Search
 JSLibrarySearcher is used for searching for script tags and trying to identify the libraries used.
