@@ -1,3 +1,4 @@
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
@@ -8,11 +9,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
 import org.hamcrest.collection.IsCollectionWithSize;
+import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.Test;
 
+import com.gurupv.simple.crawler.CrawlTask;
 import com.gurupv.simple.pattern.JSLibrarySearcher;
 import com.gurupv.simple.search.GoogleSearch;
 import com.gurupv.simple.search.SearchResults;
@@ -40,6 +47,7 @@ public class ApplicationTest {
 
 	@Test
 	public void testJSLibrarySearcher() {
+		
 		ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource("Test1.html").getFile());
 
@@ -92,6 +100,29 @@ public class ApplicationTest {
 		assertNotNull(jsLinks3);
 		assertThat(jsLinks3, IsCollectionWithSize.hasSize(1));
 
+		
+	}
+	
+	@Test
+	public void testCrawlTask(){
+		
+		ExecutorService service = Executors.newFixedThreadPool(1);
+		
+		Future<Set<String>> future =  service.submit(new CrawlTask("https://www.orixindia.com/salesandlease.aspx"));
+		
+		assertNotNull(future);
+		Set<String> jslibs = null;
+		try {
+			jslibs = future.get();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			fail("Could not derive results from the future");
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+			fail("Some problem while thread execution");
+		}
+		assertNotNull(jslibs);
+		assertThat(jslibs, not(IsEmptyCollection.empty()));
 		
 	}
 

@@ -24,6 +24,8 @@ public class GoogleSearch {
 	private static String GOOGLE_URL = "https://www.googleapis.com/customsearch/v1?";
 
 	private String searchURL;
+	
+	private GoogleSearch(){}
 
 	public static GoogleSearch initialize() {
 
@@ -48,7 +50,7 @@ public class GoogleSearch {
 		searchURL += URLEncoder.encode(searchValue, "UTF-8");
 		
 	
-		System.out.println("Search URL: "+searchURL);
+		System.out.println("Start search in Google: "+searchURL);
 		
 		URL url = new URL(searchURL);
 		Reader reader = new InputStreamReader(url.openStream(), "UTF-8");
