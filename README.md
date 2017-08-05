@@ -10,26 +10,27 @@ The application does the following
 * Aggregates and displays top JS librari used
 
 ## Search Components
-GoogleSearch class is used to initiate a search to google using google search API. The class is configured to query for only 10 results
+GoogleSearch class is used to initiate a search to google using google search API. The class is configured to query for only 10 results.  
 SearchResults and SearchItem classes are used for map the results returned from Google.
 
 ## JS libraries Search
-JSLibrarySearcher is used for searching for script tags and trying to identify the libraries used
+JSLibrarySearcher is used for searching for script tags and trying to identify the libraries used.
 
 ## Crawler
 CrawlerTask connects to a url, and initiates the search
 CrawlerManager initializes the threads and spawns off the CrawlerTasks. CrawlerManager is configured to spawn 10 simultaneous threads
 
 
-##Dependencies / 3rd party libraries
-mvn dependency:tree result
- +- com.google.code.gson:gson:jar:2.8.1:compile
- +- junit:junit:jar:4.12:test
- \- org.hamcrest:hamcrest-library:jar:1.3:test
-    \- org.hamcrest:hamcrest-core:jar:1.3:test
+##Dependencies and 3rd party libraries
+mvn dependency:tree result  
 
-GSON library is used for parsing JSON results from google search APIs.
-Junit for unit test cases
+ +- com.google.code.gson:gson:jar:2.8.1:compile  
+ +- junit:junit:jar:4.12:test  
+ \- org.hamcrest:hamcrest-library:jar:1.3:test  
+    \- org.hamcrest:hamcrest-core:jar:1.3:test  
+
+GSON library is used for parsing JSON results from google search APIs.  
+Junit for unit test cases  
 
 
 ## Test cases
