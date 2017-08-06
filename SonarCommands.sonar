@@ -1,4 +1,0 @@
-mvn sonar:sonar \
-    -Dsonar.host.url=https://sonarcloud.io \
-    -Dsonar.organization=guruprasad-pv-github \
-    -Dsonar.login=5e7603098dc99beac817d5da68b13186d8fbac3b
