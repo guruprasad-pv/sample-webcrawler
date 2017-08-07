@@ -18,9 +18,9 @@ import com.gurupv.simple.crawler.CrawlerManager;
 public class CommandLineExecutor {
 
 	public static void main(String[] args) {
-		Scanner scanner = null;
-		try {
-			scanner = new Scanner(System.in);
+
+		try (Scanner scanner = new Scanner(System.in);) {
+
 			String searchValue = "";
 			/*
 			 * Wait for the user prompt
@@ -68,10 +68,6 @@ public class CommandLineExecutor {
 				e.printStackTrace();
 			}
 
-		} finally {
-			if (scanner != null) {
-				scanner.close();
-			}
 		}
 	}
 }
